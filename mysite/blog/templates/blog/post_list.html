@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <!--templates from bootstrap-->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!--my css-->
+        <link rel="stylesheet" href="{% static "css/blog.css" %}">
+        <!--import fonts from Google Fonts https://www.google.com/fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <title>Django Project</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Django Project Blog</a></h1>
+        </div>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for post in posts %}
+                        <div class="post">
+                            <h1><a href="">{{ post.title }}</a></h1>
+                            <p>{{ post.text|linebreaks }}</p> <!--linebreaks - converts linebreaks into paragraphs-->
+                            <div class="date">
+                                {{ post.published_date }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
